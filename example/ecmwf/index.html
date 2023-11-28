@@ -13,20 +13,6 @@
 <div id="globeViz"></div>
 
 <script type="text/jsx">
-  const { useEffect, useRef } = React;
-
-  const World = () => {
-    const globeEl = useRef();
-
-    useEffect(() => {
-      const globe = globeEl.current;
-
-      // Auto-rotate
-      globe.controls().autoRotate = true;
-      globe.controls().autoRotateSpeed = 0.35;
-    }, []);
-
-  
 
   ReactDOM.render(
     <Globe
