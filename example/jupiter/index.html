@@ -1,0 +1,45 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/react/umd/react.production.min.js"></script>
+  <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/@babel/standalone"></script>
+
+  <script src="//unpkg.com/three"></script>
+
+  <script src="//unpkg.com/react-globe.gl"></script>
+  <!--<script src="../../dist/react-globe.gl.js"></script>-->
+</head>
+
+<body>
+<div id="globeViz"></div>
+
+<script type="text/jsx">
+  const { useEffect, useRef } = React;
+
+  const World = () => {
+    const globeEl = useRef();
+
+    useEffect(() => {
+      const globe = globeEl.current;
+
+      // Auto-rotate
+      globe.controls().autoRotate = true;
+      globe.controls().autoRotateSpeed = 0.35;
+
+    }, []);
+
+    return <Globe
+      ref={globeEl}
+      animateIn={false}
+      globeImageUrl="//raw.githubusercontent.com/LalonSander/react-globe.gl/master/example/jupiter/8k_jupiter_indexed.jpg"
+      backgroundImageUrl="//raw.githubusercontent.com/LalonSander/react-globe.gl/master/example/mars/8k_stars_indexed.jpg"
+    />;
+  };
+
+  ReactDOM.render(
+    <World />,
+    document.getElementById('globeViz')
+  );
+</script>
+</body>
