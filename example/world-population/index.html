@@ -24,7 +24,7 @@
 
     useEffect(() => {
       // load data
-      fetch('sam24_rounded.csv').then(res => res.text())
+      fetch('./sam24_rounded.csv').then(res => res.text())
         .then(csv => d3.csvParse(csv, ({ ind, lat, lng, pop, name }) => ({ lat: +lat, lng: +lng, pop: +pop })))
         .then(setPopData);
     }, []);
